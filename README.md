@@ -105,3 +105,7 @@ If the command does not execute, make sure you load packages from requirements.t
 ## Contributing
 
 We are using [PEP08](http://legacy.python.org/dev/peps/pep-0008/) as our style guide. Public methods should have doc strings.
+
+## License
+
+Calvinwebprint is released under the MIT License (see `LICENSE.txt`). The included JavaScript libraries have various open source licenses.
