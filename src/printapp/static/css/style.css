@@ -1,0 +1,41 @@
+.top-bar {
+	margin-bottom: 1em;
+}
+
+.hide {
+	display: none;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.small-caps {
+	font-variant-caps: small-caps;
+	-ms-font-feature-settings: "smcp";
+	-moz-font-feature-settings: "smcp";
+	-webkit-font-feature-settings: "smcp";
+	font-feature-settings: "smcp";
+}
+
+p {
+	max-width: 575px;
+}
+
+.printer-list {
+	list-style-type: none;
+	margin-left: 0px;
+}
+
+.printer-list .printer-item {
+	margin-bottom: 0.75rem;
+	padding: 0.75rem 1rem;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #D8D8D8;
+	background: none repeat scroll 0% 0% #FFF;
+	color: #333;
+}
+.printer-list .printer-item.color-printer {
+	background-color: #D9EDF7;
+}

@@ -1,0 +1,503 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calvin Web Print</title>
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="static/img/favicon.ico" type="image/x-icon">
+    <script src="static/js/libs/jquery-1.10.2.min.js"></script>
+    <script src="static/js/libs/handlebars.min.js"></script>
+    <script src="static/js/libs/modernizr.js"></script>
+  </head>
+<body>
+  <script type="text/x-handlebars" data-template-name="application">
+
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">Calvin Web Print</a></h1>
+      </li>
+    </ul>
+  </nav>
+
+  {{#if isAuthenticated}}
+    {{partial "welcome"}}
+    {{render "cloudprint" cloudprint}}
+    {{partial "queue"}}
+    {{partial "budget"}}
+  {{else}}
+    {{render "signIn" signIn}}
+  {{/if}}
+  {{render "printers" printers}}
+  {{partial "prices"}}
+  {{render "help" help}}
+  {{outlet}}
+  </script>
+  
+  <script type="text/x-handlebars" data-template-name="signIn">
+  <div class="row">
+    <div class="small-12 columns">
+      <h3 class="subheader">Welcome</h3>
+      <p>
+        Sign in with your Calvin username and passphrase.
+      </p>
+      <div class="row">
+        <div class="small-12 medium-8 columns">
+          <div id="signInError" data-alert hidden class="alert-box alert radius">
+            The username or passphrase you entered is incorrect.
+            <a href="#" class="close">&times;</a>
+          </div>
+          <div id="signInErrorUniflowDown" data-alert hidden class="alert-box alert radius">
+            <strong>Oops!</strong> We’re having trouble connecting to uniFLOW. It looks like uniFLOW may be down.
+            <a href="#" class="close">&times;</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 medium-4 columns">
+          <label>Username
+            {{input action='signin' type="text" value=inputUsername autofocus="autofocus" autocapitalize="off"}}
+          </label>
+          <label>Passphrase
+            {{input action='signin' type="password" value=inputPassword}}
+          </label>
+          <button {{action 'signin'}} {{bind-attr disabled=submitting}}>
+            {{#if submitting}}
+              Signing in...
+            {{else}}
+              Sign in
+            {{/if}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="welcome">
+  <div class="row">
+    <div class="small-12 columns">
+        <h3 class="subheader">Welcome, {{email}}</h3>
+        <button {{action 'signout'}}>Sign out</button>
+    </div>
+  </div>
+
+  <hr />
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="budget">
+  <div class="row">
+    <div class="small-12 columns">
+      {{#if isLoaded}}
+        <div id="budgetError" data-alert hidden class="alert-box alert radius">
+          <strong>Oops!</strong> We’re having trouble refreshing your print budget. Reload the page to try again. If this does not solve the problem, try signing out and signing back in.
+          <a href="#" class="close">&times;</a>
+        </div>
+        {{#if uniflowIsDown}}
+          <div data-alert class="alert-box alert radius">
+            <strong>Oops!</strong> We’re having trouble refreshing your print budget. It looks like uniFLOW may be down.
+            <a href="#" class="close">&times;</a>
+          </div>
+        {{/if}}
+        <h4>Print Budget: {{formattedPrintBudget}}</h4>
+        <div>Estimated remaining:</div>
+        <div>{{pagesEstimate}} pages black and white</div>
+        <div>{{colorPagesEstimate}} pages color</div>
+      {{else}}
+        <h4>Print Budget</h4>
+        {{#if loadingFailed}}
+          <h5>Oops, something went wrong.</h5>
+          <p>
+            {{#if uniflowIsDown}}
+              We’re having trouble connecting to uniFLOW. It looks like uniFLOW may be down.
+            {{else}}
+              We’re having trouble loading your print budget. Check your internet connection and reload the page to try again.  If this does not solve the problem, try signing out and signing back in.
+            {{/if}}
+          </p>
+        {{else}}
+          <p>Loading...</p>
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
+
+  <hr />
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="queue">
+  <div class="row">
+    <div class="small-12 columns">
+      <h4>Print Queue</h4>
+      <p>
+        When you upload a document, it is added to your print queue. To print a queued document, scan your Calvin ID at any printer on campus.
+      </p>
+      
+      {{#if isLoaded}}
+
+        <div id="queueError" data-alert hidden class="alert-box alert radius">
+          <strong>Oops!</strong> We’re having trouble refreshing your print queue. Reload the page to try again. If this does not solve the problem, try signing out and signing back in.
+          <a href="#" class="close">&times;</a>
+        </div>
+
+        {{#if controllers.queue}}
+          <table>
+            <thead>
+              <tr>
+                <th>Document Title</th>
+                <th>Date Added</th>
+                <th>Pages</th>
+                <th>Price Estimate</th>
+                <th>Color</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each item in controllers.queue}}
+                <tr>
+                  <td>{{item.name}}</td>
+                  <td>{{item.displayDate}}</td>
+                  <td>{{item.displayPages}}</td>
+                  <td>{{item.displayPrice}}</td>
+                  <td>{{item.displayIsColor}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          <div class="panel">
+            <p>Your print queue is empty.</p>
+          </div>
+        {{/if}}
+
+      {{else}}
+        {{#if loadingFailed}}
+          <div class="panel">
+            <h5>Oops, something went wrong.</h5>
+            <p>
+              {{#if uniflowIsDown}}
+                We’re having trouble connecting to uniFLOW. It looks like uniFLOW may be down.
+              {{else}}
+                We’re having trouble loading your print queue. Check your internet connection and reload the page to try again. If this does not solve the problem, try signing out and signing back in.
+              {{/if}}
+            </p>
+          </div>
+        {{else}}
+          <p>Loading...</p>
+        {{/if}}
+
+      {{/if}}
+
+    </div>
+  </div>
+
+  <hr />
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="cloudprint">
+  <div class="row">
+    <div class="small-12 columns">
+      <h4>Print</h4>
+
+      {{#if isLoaded}}
+
+        {{#if haveCloudPrintPermission}}
+          {{#if isPrinterInstalled}}
+            {{render "printForm" printForm}}
+          {{else}}
+            {{partial "addPrinter"}}
+          {{/if}}
+        {{else}}
+          <h5>Connect with Google Cloud Print</h5>
+          <p>In order to print, connect with your StudentMail Google Cloud Print account.</p>
+          <a {{bind-attr href=cloudPrintPermissionUrl}}><button>Connect your account</button></a>
+        {{/if}}
+
+      {{else}}
+
+      <div class="row">
+        <div class="small-12 columns">
+
+        {{#if loadingError}}
+          <h5>Oops, something went wrong.</h5>
+          <p>
+            We’re having trouble loading the print form. Reload the page to try again. If this does not solve the problem, try signing out and signing back in.
+          </p>
+        {{else}}
+          <p>Loading...</p>
+        {{/if}}
+
+        </div>
+      </div>
+
+      {{/if}}
+
+    </div>
+  </div>
+
+  <hr />
+
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="addPrinter">
+
+  <h5>Add Calvin Printer</h5>
+  <p>To Print, add Calvin’s printer to your Google Cloud Print account.</p>
+  {{#if showAddPrinterHelp}}
+    <div class="panel callout">
+      <h5>Printer not found</h5>
+      <p>
+        Make sure you add the printer to your student email account.
+        You may need to sign out of other Google accounts first. Don’t
+        worry, you only have to do this once.
+      </p>
+    </div>
+  {{/if}}
+  {{#if showAddPrinterButton}}
+    <a class="button" {{action 'onAddPrinter'}} {{bind-attr href=addPrinterLink}} target="_blank">
+      Add Calvin printer
+    </a>
+    <h5>Having Trouble?</h5>
+    <p>
+      If you connected an account other than your StudentMail account, you may be unable to add the uniFLOW printer. In that case, you can revoke access to your account to start over.
+    </p>
+    <button class="alert" {{action 'onRevokeCloudPrint'}}>Start over</button>
+  {{else}}
+    <button {{action 'onContinue'}}>Continue</button>
+  {{/if}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="printForm">
+  <div class="row">
+    <div class="small-12 columns">
+      <p>
+        Upload a file to print. Use PDF files for best results.
+      </p>
+      <div id="printSuccess" data-alert hidden class="alert-box success radius">
+        <strong>Success!</strong> To retrieve your document, swipe your student ID at any printer on campus.
+        <a href="#" class="close">&times;</a>
+      </div>
+      <div id="printError" data-alert hidden class="alert-box alert radius">
+        <strong>Sorry!</strong> Something went wrong while we were submitting your print job. Please try again.
+        <a href="#" class="close">&times;</a>
+      </div>
+      <div id="fileSizeError" data-alert hidden class="alert-box alert radius">
+        <strong>File is too large.</strong> Your file exceeds the 100MB limit.
+        <a href="#" class="close">&times;</a>
+      </div>
+      <div id="fileTypeError" data-alert hidden class="alert-box alert radius">
+        <strong>Incorrect file type.</strong> Sorry, we can’t print files of this type. Try a Word document or PDF.
+        <a href="#" class="close">&times;</a>
+      </div>
+      {{#if fileSelected}}
+        <p>
+          <button {{action 'selectFile'}}>Select a file</button>
+        </p>
+      {{else}}
+        <p>
+          <button class="secondary" {{action 'cancelUpload'}} {{bind-attr disabled=printing}}>Cancel upload</button>
+        </p>
+        {{fileName}}
+        <div class="progress large-4 small-5 secondary success"> 
+          <span class="meter" {{bind-attr style=uploadProgressBarWidth}}></span> 
+        </div>
+      {{/if}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="row">
+        <div class="large-2 medium-2 small-5 columns end">
+          <label>Copies
+            {{input type="number" value=copies min="1"}}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns end">
+          {{input type="checkbox" id="color-checkbox" checked=color}} <label for="color-checkbox">Color</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns end">
+          {{input type="checkbox" id="double-sided-checkbox" disabled=disableDoubleSided checked=doubleSided}} <label for="double-sided-checkbox">Double sided</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns end">
+          {{input type="checkbox" id="staple-checkbox" disabled=disableStaple checked=staple}} <label for="staple-checkbox" title="Only the large printer/copier combo machines can staple your document">Staple</label>
+        </div>
+      </div>
+      {{#if showCollate}}
+        <div class="row">
+          <div class="small-12 columns end">
+            {{input type="checkbox" id="collate-checkbox" checked=collate}} <label for="collate-checkbox">Collate</label>
+          </div>
+        </div>
+      {{/if}}
+      <button {{action 'submit'}} {{bind-attr disabled=notReadyToSubmit}}>
+        {{#if printing}}
+          Submitting...
+        {{else}}
+          Submit
+        {{/if}}
+      </button>
+    </div>
+  </div>
+
+  <input class="hide" type="file" id="file-input" {{bind-attr accept=inputSupportedFileTypes}} {{action 'handleFile' on="change"}}></input>
+
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="printers">
+  <div class="row">
+    <div class="small-12 columns">
+      <h4>Printer Locations</h4>
+      {{#if isLoaded}}
+        <div class="row">
+          <div class="small-12 medium-6 columns">
+            {{view Ember.Select
+                content=buildingGroups
+                optionValuePath="content.id"
+                optionLabelPath="content.displayName"
+                selection=selectedGroup
+            }}
+            {{input type="checkbox" id="show-private-checkbox" checked=showPrivatePrinters}} <label for="show-private-checkbox">Show private printers</label>
+            {{#if printers.length}}
+              <ul class="printer-list">
+                {{#each printer in printers}}
+                  {{#if printer.color}}
+                    <li class="printer-item color-printer">
+                  {{else}}
+                    <li class="printer-item">
+                  {{/if}}
+                   
+                  {{#if printer.displayNameOverride}}
+                    <strong>{{printer.displayNameOverride}}</strong>
+                  {{else}}
+                    <strong>{{printer.building}} {{printer.displayFloor}}</strong>
+                  {{/if}}
+
+                  {{#if printer.hideRoomNumber}}
+                    <div>
+                      {{printer.displayType}} {{printer.displayPublic}}
+                    </div>
+                  {{else}}
+                    <div>
+                      {{printer.displayType}}, {{printer.displayRoom}} {{printer.displayPublic}}
+                    </div>
+                  {{/if}}
+                  </li>
+                {{/each}}
+              </ul>
+            {{else}}
+              <p class="panel">There are no public printers in this building.</p>
+            {{/if}}
+          </div>
+          <div class="medium-6 columns hide-for-small-only">
+            {{render "campusMap"}}
+          </div>
+        </div>
+      {{else}}
+        {{#if errorLoading}}
+          <h5>Oops, something went wrong.</h5>
+          <p>
+            We’re having trouble loading the list of printers. Check your internet connection and reload the page to try again.  If this does not solve the problem, try signing out and signing back in.
+          </p>
+        {{else}}
+          <p>Loading...</p>
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
+
+  <hr />
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="prices">
+  <div class="row">
+    <div class="small-12 columns">
+      <h4>Prices</h4>
+      <h6><span class="small-caps bold">mfd</span> <small>Multi-function display</small></h6>
+      <p>
+        The large printer/copier combo machines are called <span class="small-caps">mfd</span>s. These are the most affordable option.
+      </p>
+      <table> 
+        <thead>
+          <tr>
+            <th>Duplex</th>
+            <th>Black and white</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Single-sided</td>
+            <td>$0.0255</td>
+            <td>$0.255</td>
+          </tr>
+          <tr>
+            <td>Double-sided</td>
+            <td>$0.041</td>
+            <td>$0.50</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h6 class="bold">Laser Printer</h6>
+      <p>
+        The smaller printers are laser printers. These are more expensive but produce higher quality images.
+      </p>
+      <table> 
+        <thead>
+          <tr>
+            <th>Duplex</th>
+            <th>Black and white</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Single-sided</td>
+            <td>$0.0285</td>
+            <td>$0.285</td>
+          </tr>
+          <tr>
+            <td>Double-sided</td>
+            <td>$0.047</td>
+            <td>$0.56</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr />
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="campusMap">
+    <object width=85% id="campus-map" data="static/img/campus.min.svg" type="image/svg+xml"></object>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="help">
+  <div class="row">
+    <div class="small-12 columns">
+      <a href="help">Help &amp; Support</a>
+    </div>
+  </div>
+  <hr />
+  </script>
+
+  <script src="static/js/libs/foundation.min.js"></script>
+  <script src="static/js/libs/ember.min.js"></script>
+  <script src="static/js/libs/moment.min.js"></script>
+  <script src="static/js/libs/jquery.cookie.min.js"></script>
+  <script src="static/js/libs/lodash.compat.min.js"></script>
+  <script src="static/js/app.js"></script>
+</body>
+
+</html>

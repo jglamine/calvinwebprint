@@ -1,0 +1,5 @@
+/venv
+*.pyc
+credentials.env
+secret-settings.py
+*.DS_Store

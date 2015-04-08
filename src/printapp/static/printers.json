@@ -1,0 +1,1370 @@
+[
+  {
+    "id": "library",
+    "displayName": "Hekman Library",
+    "printers": [
+      {
+        "name": "HL102-ITC-LSR1",
+        "room": "102",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL102-ITC-LSR2",
+        "room": "102",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL102-ITC-LSRCOLOR",
+        "room": "102",
+        "building": "Hekman Library",
+        "public": true,
+        "color": true,
+        "type": "Laser"
+      },
+      {
+        "name": "HL106-CIT-MFDCOLOR",
+        "room": "106",
+        "building": "Hekman Library",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      },
+      {
+        "name": "HL120-CIT-LSR1",
+        "room": "102",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL121-CIT-LSRCOLOR",
+        "room": "121",
+        "building": "Hekman Library",
+        "public": true,
+        "color": true,
+        "type": "Laser"
+      },
+      {
+        "name": "HL122-CIT-LSR1",
+        "room": "122",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL203-LIBR-LSR2",
+        "room": "203",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL203-LIBR-MFD",
+        "room": "203",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL204-LIBR-LSR1",
+        "room": "204",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL206B-CRDV-MFD",
+        "room": "206B",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL206-LIBR-LSR1",
+        "room": "206",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL206-LIBR-LSR2",
+        "room": "206",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL206-LIBR-MFD",
+        "room": "206",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL207-LIBR-LSR1",
+        "room": "207",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL244-HRHL-MFD",
+        "room": "244",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL304-LIBR-MFD",
+        "room": "304",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL304-SCS-LSRCOLOR",
+        "room": "304",
+        "building": "Hekman Library",
+        "public": false,
+        "color": true,
+        "type": "Laser"
+      },
+      {
+        "name": "HL306-LIBR-MFD",
+        "room": "306",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL309-LIBR-MFD",
+        "room": "309",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL314-LIBR-MFD",
+        "room": "314",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL315E-CICW-LSR1",
+        "room": "315E",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL315E-CICW-MFDCOLOR",
+        "room": "315E",
+        "building": "Hekman Library",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      },
+      {
+        "name": "HL372-CRDV-MFD",
+        "room": "372",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL400-MRC-LSR1",
+        "room": "400",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL408-LIBR-MFD",
+        "room": "408",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL415-MEET-LSR1",
+        "room": "203",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HL419-MEET-MFD",
+        "room": "419",
+        "building": "Hekman Library",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HL508-LIBR-MFD",
+        "room": "508",
+        "building": "Hekman Library",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      }
+    ]
+  },
+  {
+    "id": "dorms",
+    "displayName": "Dorms",
+    "printers": [
+      {
+        "name": "BB-STLF-LSR1",
+        "room": "lobby",
+        "building": "Boer-Bennink",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "BHT-STLF-LSR1",
+        "room": "lobby",
+        "building": "Bolt-Heyns-Timmer",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "BL100-STLF-MFD",
+        "room": "study room",
+        "building": "Bolt-Heyns-Timmer",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "BV-STLF-LSR1",
+        "room": "lobby",
+        "building": "Beets-Veenstra",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "KHVR-STLF-LSR1",
+        "room": "lobby",
+        "building": "Kalsbeek-Heizenga-vanReken",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HZ054-DEV-LSR1",
+        "room": "hz054",
+        "building": "Kalsbeek-Heizenga-vanReken",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "NVW-STLF-LSR1",
+        "room": "lobby",
+        "building": "Noordewier-VanderWerp",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "NVW-STLF-MFD",
+        "room": "study room",
+        "building": "Noordewier-VanderWerp",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "RVD-STLF-LSR1",
+        "room": "lobby",
+        "building": "Rooks-VanDellen",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SE-STLF-LSR1",
+        "room": "lobby",
+        "building": "Schultze-Eldersveld",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      }
+    ]
+  },
+  {
+    "id": "ke",
+    "displayName": "Knollcrest East Apartments",
+    "printers": [
+      {
+        "name": "GM-STLF-LSR1",
+        "room": "lab",
+        "building": "Gamma",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "PC-STLF-LSR1",
+        "room": "lab",
+        "building": "Phi Chi",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "TE-STLF-MFD",
+        "room": "lobby",
+        "building": "Theta Epsilon",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "ZL-STLF-LSR1",
+        "room": "lab",
+        "building": "Zeta Lambda",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      }
+    ]
+  },
+  {
+    "id": "chapel",
+    "displayName": "Chapel",
+    "printers": [
+      {
+        "name": "CP222-CHAP-MFD",
+        "room": "222",
+        "building": "Chapel",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      }
+    ]
+  },
+  {
+    "id": "commons-annex",
+    "displayName": "Commons Annex",
+    "printers": [
+      {
+        "name": "CA012-CHIMES-LSRCOLOR",
+        "room": "012",
+        "building": "Commons Annex",
+        "public": false,
+        "color": true,
+        "type": "Laser"
+      },
+      {
+        "name": "CA101-SAO-MFD",
+        "room": "101",
+        "building": "Commons Annex",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "CA121-SLC-LSR1",
+        "room": "121",
+        "building": "Commons Annex",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CA144-CHAP-LSR1",
+        "room": "144",
+        "building": "Commons Annex",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CA150-CHAP-MFD",
+        "room": "150",
+        "building": "Commons Annex",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "CA206A-FOOD-LSR1",
+        "room": "206A",
+        "building": "Commons Annex",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CM231A-FOOD-MFDCOLOR",
+        "room": "206A",
+        "building": "Commons Annex",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      }
+    ]
+  },
+  {
+    "id": "commons",
+    "displayName": "Commons",
+    "printers": [
+      {
+        "name": "CM140-BKST-MFD",
+        "room": "140",
+        "building": "Commons",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "CM141-BKST-LSR1",
+        "room": "141",
+        "building": "Commons",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CM157A-FOOD-LSRCOLOR",
+        "room": "157A",
+        "building": "Commons",
+        "public": false,
+        "color": true,
+        "type": "Laser"
+      },
+      {
+        "name": "CM158-CIT-LSR1",
+        "room": "158",
+        "building": "Commons",
+        "public": true,
+        "color": false,
+        "type": "Laser",
+        "displayNameOverride": "Johnny's",
+        "hideRoomNumber": true
+      },
+      {
+        "name": "CM306-FOOD-MFD",
+        "room": "306",
+        "building": "Commons",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      }
+    ]
+  },
+  {
+    "id": "cfac",
+    "displayName": "Covenant Fine Arts Center",
+    "printers": [
+      {
+        "name": "CF166-MUSC-MFD",
+        "room": "166",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "CF214-OCCE-LSR1",
+        "room": "214",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CF214-OCCE-MFD",
+        "room": "214",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "CF224-MUSC-LSR1",
+        "room": "224",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CF226B-ENGL-MFD",
+        "room": "226",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "CF229-ENGL-LSR1",
+        "room": "229",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CF232-ENGL-LSR1",
+        "room": "232",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CF237-MUSC-LSR1",
+        "room": "237",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CF215A-CIT-LSR1",
+        "room": "215A",
+        "building": "Covenant Fine Arts Center",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CF56E-MUSC-MFD",
+        "room": "256E",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "CF266B-ENGL-LSR1",
+        "room": "266B",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "CF295-ENGL-LSR1",
+        "room": "295",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      }
+    ]
+  },
+  {
+    "id": "devos",
+    "displayName": "DeVos Communcations Center",
+    "printers": [
+      {
+        "name": "DC010-CAS-LSR1",
+        "room": "010",
+        "building": "DeVos Communcations Center",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "DC100-CAS-LSR1",
+        "room": "100",
+        "building": "DeVos Communcations Center",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "DC207A-SPAUD-LSR1",
+        "room": "207A",
+        "building": "DeVos Communcations Center",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "DC260A-CAS-MFD",
+        "room": "260A",
+        "building": "DeVos Communcations Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "DC261-POLS-LSR1",
+        "room": "261",
+        "building": "DeVos Communcations Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "displayName": "Science Building",
+    "printers": [
+      {
+        "name": "SB003-ENGR-LSR1",
+        "room": "003",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB046-ENGR-LSR1",
+        "room": "046",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB076-ENGR-LSR1",
+        "room": "076",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB082-ENGR-LSR1",
+        "room": "082",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB120-ENGR-LSR1",
+        "room": "120",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB128-ENGR-LSR1",
+        "room": "128",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB136-ENGR-LSR1",
+        "room": "136",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB148-ENGR-LSR1",
+        "room": "148",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB148-ENGR-MFD",
+        "room": "148",
+        "building": "Science Building",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "SB157-PHYS-LSR1",
+        "room": "157",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB176-ENGR-LSR1",
+        "room": "176",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB177-PHYS-LSR1",
+        "room": "177",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB206-BIOL-LSR1",
+        "room": "206",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB232-NURS-LSR1",
+        "room": "232",
+        "building": "Science Building",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB240-NURS-MFD",
+        "room": "240",
+        "building": "Science Building",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "SB255-SCID-LSR1",
+        "room": "255",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB276-BIOL-LSR1",
+        "room": "276",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB277-ENGR-LSR1",
+        "room": "277",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB325-PSYC-MFD",
+        "room": "325",
+        "building": "Science Building",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "SB352-PSYC-LSR1",
+        "room": "352",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB354-CPSC-LSR1",
+        "room": "354",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SB372-CPSC-LSR1",
+        "room": "372",
+        "building": "Science Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      }
+    ]
+  },
+  {
+    "id": "devries",
+    "displayName": "DeVries Hall",
+    "printers": [
+      {
+        "name": "DH011-SCID-MFD",
+        "room": "011",
+        "building": "DeVries Hall",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "DH013-WMRL-LSR1",
+        "room": "013",
+        "building": "DeVries Hall",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "DH013-WMRL-MFD",
+        "room": "013",
+        "building": "DeVries Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "DH100-BIOL-MFD",
+        "room": "100",
+        "building": "DeVries Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "DH112-BIOL-LSR1",
+        "room": "112",
+        "building": "DeVries Hall",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "DH132-BIOL-LSR1",
+        "room": "132",
+        "building": "DeVries Hall",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "DH224-CHEM-LSR1",
+        "room": "224",
+        "building": "DeVries Hall",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "DH232-CHEM-LSR1",
+        "room": "232",
+        "building": "DeVries Hall",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "DH306-CHEM-LSR1",
+        "room": "306",
+        "building": "DeVries Hall",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "DH320-CHEM-LSR1",
+        "room": "320",
+        "building": "DeVries Hall",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "DH332-CHEM-LSR1",
+        "room": "332",
+        "building": "DeVries Hall",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      }
+    ]
+  },
+  {
+    "id": "north-hall",
+    "displayName": "North Hall",
+    "printers": [
+      {
+        "name": "NH067-GEOL-LSR1",
+        "room": "067",
+        "building": "North Hall",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "NH067-GEOL-LSRCOLOR",
+        "room": "067",
+        "building": "North Hall",
+        "public": true,
+        "color": true,
+        "type": "Laser"
+      },
+      {
+        "name": "NH069-MATH-LSR1",
+        "room": "069",
+        "building": "North Hall",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "NH076-GEOL-LSR1",
+        "room": "076",
+        "building": "North Hall",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "NH158-SCID-MFSBW",
+        "room": "158",
+        "building": "North Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "NH158-SCID-MFDCOLOR",
+        "room": "158",
+        "building": "North Hall",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      },
+      {
+        "name": "NH167-BUSECON-MFDCOLOR",
+        "room": "167",
+        "building": "North Hall",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      },
+      {
+        "name": "NH180-BUSECON-LSR1",
+        "room": "180",
+        "building": "North Hall",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "NH270-MATHCPSC-MFD",
+        "room": "270",
+        "building": "North Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      }
+    ]
+  },
+  {
+    "id": "engineering",
+    "displayName": "Engineering Building",
+    "printers": [
+      {
+        "name": "EB120-ENGR-LSR1",
+        "room": "120",
+        "building": "Engineering Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "EB130-ENGR-LSR1",
+        "room": "130",
+        "building": "Engineering Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "EB130-ENGR-MFD",
+        "room": "130",
+        "building": "Engineering Building",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "EB210-ENGR-LSR1",
+        "room": "210",
+        "building": "Engineering Building",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      }
+    ]
+  },
+  {
+    "id": "hiemenga",
+    "displayName": "Hiemenga Hall",
+    "printers": [
+      {
+        "name": "HH221-ART-LSRCOLOR",
+        "room": "221",
+        "building": "Hiemenga Hall",
+        "public": true,
+        "color": true,
+        "type": "Laser"
+      },
+      {
+        "name": "HH226-AV-MFD",
+        "room": "226",
+        "building": "Hiemenga Hall",
+        "public": true,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HH304-REL-LSR1",
+        "room": "304",
+        "building": "Hiemenga Hall",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HH304-REL-MFD",
+        "room": "304",
+        "building": "Hiemenga Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HH332-OCPG-MFD",
+        "room": "332",
+        "building": "Hiemenga Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HH351-PHIL-MFD",
+        "room": "351",
+        "building": "Hiemenga Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HH401-SPAN-MFD",
+        "room": "401",
+        "building": "Hiemenga Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HH440-SAS-LSR1",
+        "room": "440",
+        "building": "Hiemenga Hall",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HH444-SAS-MFD",
+        "room": "444",
+        "building": "Hiemenga Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "HH481-HIST-LSR1",
+        "room": "481",
+        "building": "Hiemenga Hall",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "HH481-HIST-MFD",
+        "room": "481",
+        "building": "Hiemenga Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      }
+    ]
+  },
+  {
+    "id": "spoelhof-center",
+    "displayName": "Spoelhof Center",
+    "printers": [
+      {
+        "name": "SC132-ART-MFDCOLOR",
+        "room": "132",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      },
+      {
+        "name": "SC207-FINS-LSR1",
+        "room": "207",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SC226-SOC-MFD",
+        "room": "226",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "SC232B-FINS-LSR1",
+        "room": "232B",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SC246-ADM-MFD",
+        "room": "246",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "SC252-ADM-LSR1",
+        "room": "252",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SC252-ADM-LSR2",
+        "room": "252",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SC252-ADM-LSR3",
+        "room": "252",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SC286-ADM-MFDCOLOR",
+        "room": "286",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      },
+      {
+        "name": "SC301-ADVS-MFD",
+        "room": "301",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "SC360-ADVSFINS-MFDCOLOR",
+        "room": "360",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      },
+      {
+        "name": "SC364J-STLF-LSR1",
+        "room": "364J",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SC368E-STLF-MFDCOLOR",
+        "room": "368E",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      },
+      {
+        "name": "SC368F-BRCT-LSR1",
+        "room": "368F",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SC369F-FINS-MFD",
+        "room": "369F",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "SC383-PROV-MFD",
+        "room": "383",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "SC390-PRES-MFDCOLOR",
+        "room": "390",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      },
+      {
+        "name": "SC398-EDUC-MFD",
+        "room": "398",
+        "building": "Spoelhof Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      }
+    ]
+  },
+  {
+    "id": "fieldhouse",
+    "displayName": "Spoelhof Fieldhouse Complex",
+    "printers": [
+      {
+        "name": "HC186-HEAL-MFD",
+        "room": "186",
+        "building": "Hoogenboom Center",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "SF100-KIN-LSR1",
+        "room": "100",
+        "building": "Spoelhof Fieldhouse",
+        "public": true,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "SF216-KIN-MFD",
+        "room": "216",
+        "building": "Spoelhof Fieldhouse",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "SF231-KIN-MFD",
+        "room": "231",
+        "building": "Spoelhof Fieldhouse",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      },
+      {
+        "name": "VN137-KIN-LSR1",
+        "room": "137",
+        "building": "Van Noord",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      }
+    ]
+  },
+  {
+    "id": "knollcrest",
+    "displayName": "Knollcrest Dining Hall",
+    "printers": [
+      {
+        "name": "KD107-FOOD-MFDCOLOR",
+        "room": "107",
+        "building": "Knollcrest Dining Hall",
+        "public": false,
+        "color": false,
+        "type": "MFD"
+      }
+    ]
+  },
+  {
+    "id": "prince",
+    "displayName": "Prince Conference Center",
+    "printers": [
+      {
+        "name": "PC100-PCC-LSR1",
+        "room": "100",
+        "building": "Prince Conference Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "PC100-PCC-LSR2",
+        "room": "100",
+        "building": "Prince Conference Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
+        "name": "PC103A-PCC-MFDCOLOR",
+        "room": "103A",
+        "building": "Prince Conference Center",
+        "public": false,
+        "color": true,
+        "type": "MFD"
+      },
+      {
+        "name": "PC201-PCC-LSR1",
+        "room": "201",
+        "building": "Prince Conference Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      }
+    ]
+  }
+]
