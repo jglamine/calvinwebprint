@@ -286,8 +286,8 @@ App.PrintFormController = Ember.ObjectController.extend({
       element.click();
     },
 
-    handleFile: function() {
-      var element = document.getElementById('file-input');
+    handleFile: function(id) {
+      var element = document.getElementById(id);
       var fileList = element.files;
       if (fileList.length === 0) {
         this.set('fileName', null);
@@ -363,7 +363,9 @@ App.PrintFormController = Ember.ObjectController.extend({
   },
 
   clearFileInput: function() {
-    var element = document.getElementById('file-input');
+    // This selector currently only selects 'file-input'
+    // because #file-input-drag is no longer in the DOM once the button becomes "Cancel upload"
+    var element = $('#file-input, #file-input-drag');
     element.value = '';
   },
 

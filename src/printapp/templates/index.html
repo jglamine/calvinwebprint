@@ -272,9 +272,20 @@
         <a href="#" class="close">&times;</a>
       </div>
       {{#if fileSelected}}
-        <p>
-          <button {{action 'selectFile'}}>Select a file</button>
-        </p>
+        <div class="row">
+          <div class="small-12 medium-4 columns">
+            <button {{action 'selectFile'}}>Select a file</button>
+          </div>
+          <div class="hide-for-small-only medium-8 columns">
+            <div class="dragAndDropWrapper">
+              <div class="dragText">
+                Or drag a file here
+              </div>
+              <input type=file id="file-input-drag" class="dragAndDrop" {{bind-attr accept=inputSupportedFileTypes}} {{action 'handleFile' "file-input-drag" on="change"}}>
+              </input>
+            </div>
+          </div>
+        </div>
       {{else}}
         <p>
           <button class="secondary" {{action 'cancelUpload'}} {{bind-attr disabled=printing}}>Cancel upload</button>
@@ -290,7 +301,7 @@
     <div class="small-12 columns">
       <div class="row">
         <div class="large-2 medium-2 small-5 columns end">
-          <label>Copies
+          <label class="copies-label">Copies
             {{input type="number" value=copies min="1"}}
           </label>
         </div>
@@ -327,7 +338,7 @@
     </div>
   </div>
 
-  <input class="hide" type="file" id="file-input" {{bind-attr accept=inputSupportedFileTypes}} {{action 'handleFile' on="change"}}></input>
+  <input class="hide" type="file" id="file-input" {{bind-attr accept=inputSupportedFileTypes}} {{action 'handleFile' "file-input" on="change"}}></input>
 
   </script>
 
