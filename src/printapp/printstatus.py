@@ -37,7 +37,11 @@ class _UniflowClient:
         self._queue_scraper.sign_in(self._username, self._password)
         return self._queue_scraper.fetch_data()
 
-PrintJob = namedtuple('PrintJob',['name', 'pages', 'copies',
+    def delete_print_jobs(self, job_ids):
+        self._queue_scraper.sign_in(self._username, self._password)
+        self._queue_scraper.delete_print_jobs(job_ids)
+
+PrintJob = namedtuple('PrintJob',['job_id', 'name', 'pages', 'copies',
                                   'price', 'printer_name', 'date'])
 
 class _PrintScraper:
@@ -166,6 +170,7 @@ class _QueueScraper(_PrintScraper):
         for i in range(numberOfJobs):
             j = i * 7
             try:
+                job_id = re.search(r"c_OnSelectJob\('(.*)'\)", unicode(print_job_tags[0 + j]['onclick'])).group(1)
                 name = unicode(print_job_tags[0 + j].string)
                 pages = int(print_job_tags[1 + j].string)
                 copies = int(print_job_tags[2 + j].string)
@@ -176,8 +181,36 @@ class _QueueScraper(_PrintScraper):
                 raise ScrapingError(err)
             except ValueError as err:
                 raise ScrapingError(err)
-            print_jobs.append(PrintJob(name, pages, copies, price, printer_name, date))
+            if job_id is None:
+                raise ScrapingError("Print job id not found for document: {}".format(name))
+            print_jobs.append(PrintJob(job_id, name, pages, copies, price, printer_name, date))
         return print_jobs
+
+    def delete_print_jobs(self, job_ids):
+        """Deletes print jobs from a user's print queue."""
+        post_data = {
+            'theaction': 'search',
+            'mmtype': 'login',
+            'smtype': '',
+            'theItems': 'selected',
+            'Action_IncReleaseQueue': 'Delete',
+            'token': self._token
+        }
+
+        for job_id in job_ids:
+            post_data[job_id] = 'yes'
+
+        try:
+            response = self._session.post(BASE_URL + self.path + PRINT_QUEUE_PATH,
+                                          data=post_data)
+        except requests.exceptions.ConnectionError as err:
+            raise NetworkError(err)
+        except requests.exceptions.HTTPError as err:
+            raise NetworkError(err)
+        except requests.exceptions.RequestException as err:
+            raise NetworkError(err)
+        if response.status_code != requests.codes.ok:
+            raise ScrapingError("Invalid HTTP status code: {}".format(response.status_code))
 
 
 class ScrapingError(Exception):

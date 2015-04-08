@@ -254,6 +254,38 @@ def printjob():
     file_handle.close()
     return '', 201
 
+@app.route('/api/deletejob/<job_id>', methods=['POST'])
+def deletejob(job_id):
+    '''API endpoint to delete a print job.
+
+    Response body is empty.
+    Response codes:
+        200 - print job deleted successfully
+        400 - invalid request - missing print job id
+        401 - invalid credentials
+        504 - database error
+        502 - scraping error
+    '''
+    if job_id is None:
+        abort(400, 'Missing print job id.')
+
+    try:
+        email, password = util.get_current_user_credentials()
+    except ValueError:
+        abort(401)
+    username = email.split('@')[0]
+    
+    try:
+        uniflow = printstatus.get_uniflow_client(username, password)
+        uniflow.delete_print_jobs([job_id])
+    except printstatus.InvalidCredentialsError:
+        abort(401)
+    except printstatus.NetworkError:
+        abort(504)
+    except printstatus.ScrapingError:
+        abort(502)
+    return '', 200
+
 def _parse_bool(string):
     if string is None:
         raise ValueError('None is not a valid boolean')
