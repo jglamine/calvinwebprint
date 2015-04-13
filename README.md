@@ -41,7 +41,7 @@ When pulling code changes from git, be sure to update your local packages from r
 
 ## Configuration Settings
 
-Default settings are loaded from `defaults.config`. To override these settings, create a configuration file and save the path to this file in the environment variable `PRINTAPP_SETTINGS`.
+Default settings are loaded from `src/printapp/config.py`. To override these settings, create a configuration file and save the path to this file (relative to the `src/printapp` directory) in the environment variable `PRINTAPP_SETTINGS`.
 
 Add your cloudprint api keys to this custom configuration file. If you do not set the cloudprint keys, communication with google cloud print will not work.
 
@@ -80,9 +80,9 @@ You will create a shell script called `credentials.env` containing the following
 
 Be sure to grant oauth access to your cloud print account, as many of the tests will fail without it.
 
-You may also want to add the path to a custom configuration file which overrides settings from `defaults.config`:
+You may also want to add the path (relative to the `src/printapp` directory) to a custom configuration file which overrides settings from `src/printapp/config.py`:
 
-    export PRINTAPP_SETTINGS=/path/to/printapp.config
+    export PRINTAPP_SETTINGS=secret-settings.py
 
 You can then load environment variables with the following command:
 
