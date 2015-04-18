@@ -25,7 +25,7 @@ Install the python dependencies with:
 
 Run the development server with:
 
-    python src/server.py debug
+    python src/WSGI.py
 
 You can now view the website at `http://localhost:5001`
 
