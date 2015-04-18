@@ -6,6 +6,8 @@ PRINTPRICES = [
 	{'name': 'laser-double-sided', 'black': 0.0235, 'color': 0.28}
 ]
 
+LOGFILE = 'calvinwebprint.log'
+
 # Override these in a configuration file, then set the `PRINTAPP_SETTINGS`
 # environment variable to that file.
 # If these variables are not set, communication with google cloud print will
