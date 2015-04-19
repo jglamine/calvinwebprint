@@ -12,5 +12,4 @@ pymongo==2.7.2
 python-ntlm==1.1.0
 requests==2.4.1
 requests-ntlm==0.0.3
-uWSGI==2.0.10
 Werkzeug==0.10.1
