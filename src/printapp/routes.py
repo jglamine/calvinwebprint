@@ -35,6 +35,13 @@ def about():
     response = make_response(render_template('about.html', title='About'))
     return response
 
+@app.route('/settings')
+def settings():
+    """Route for settings.html.
+    """
+    response = make_response(render_template('settings.html', title='About'))
+    return response
+
 @app.route('/oauthredirect')
 def oauthredirect():
     """Callback route to receive an authorization code for cloud print.
