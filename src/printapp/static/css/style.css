@@ -2,6 +2,13 @@
 	margin-bottom: 1em;
 }
 
+.footer > li:nth-child(n) {
+	margin-left: 3rem;
+}
+.footer > li:first-child {
+	margin-left: 1.375rem;
+}
+
 .hide {
 	display: none;
 }
@@ -11,7 +18,7 @@
 }
 
 .small-caps {
-	font-variant-caps: small-caps;
+	font-variant: small-caps;
 	-ms-font-feature-settings: "smcp";
 	-moz-font-feature-settings: "smcp";
 	-webkit-font-feature-settings: "smcp";

@@ -1,30 +1,8 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calvin Web Print</title>
-    <link rel="stylesheet" href="static/css/foundation.min.css">
-    <link rel="stylesheet" href="static/css/normalize.css">
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="static/img/favicon.ico" type="image/x-icon">
-    <script src="static/js/libs/jquery-1.10.2.min.js"></script>
-    <script src="static/js/libs/handlebars.min.js"></script>
-    <script src="static/js/libs/modernizr.js"></script>
-  </head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+{% raw %}
+  
   <script type="text/x-handlebars" data-template-name="application">
-
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="#">Calvin Web Print</a></h1>
-      </li>
-    </ul>
-  </nav>
-
   {{#if isAuthenticated}}
     {{partial "welcome"}}
     {{render "cloudprint" cloudprint}}
@@ -35,7 +13,6 @@
   {{/if}}
   {{render "printers" printers}}
   {{partial "prices"}}
-  {{render "help" help}}
   {{outlet}}
   </script>
   
@@ -484,21 +461,5 @@
     <object width=85% id="campus-map" data="static/img/campus.min.svg" type="image/svg+xml"></object>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="help">
-  <div class="row">
-    <div class="small-12 columns">
-      <a href="help">Help &amp; Support</a>
-    </div>
-  </div>
-  <hr />
-  </script>
-
-  <script src="static/js/libs/foundation.min.js"></script>
-  <script src="static/js/libs/ember.min.js"></script>
-  <script src="static/js/libs/moment.min.js"></script>
-  <script src="static/js/libs/jquery.cookie.min.js"></script>
-  <script src="static/js/libs/lodash.compat.min.js"></script>
-  <script src="static/js/app.js"></script>
-</body>
-
-</html>
+{% endraw %}
+{% endblock %}

@@ -1,14 +1,14 @@
 from printapp import app, util
-from flask import make_response, request, redirect
+from flask import render_template, make_response, request, redirect
 import oauthcredentials
 
 @app.route('/')
 def index():
-    """Route for index.html, served statically.
+    """Route for index.html.
 
     Also sets various cookies which the front end uses.
     """
-    response = make_response(app.send_static_file('index.html'))
+    response = make_response(render_template('index.html'))
 
     # Set status cookies used by the front end.
     signed_in = True
@@ -26,12 +26,13 @@ def index():
 
     return response
 
+@app.route('/about')
 @app.route('/help')
 @app.route('/support')
-def help():
-    """Route for help.html, served statically.
+def about():
+    """Route for help.html.
     """
-    response = make_response(app.send_static_file('help.html'))
+    response = make_response(render_template('about.html', title='About'))
     return response
 
 @app.route('/oauthredirect')
