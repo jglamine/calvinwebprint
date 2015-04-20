@@ -39,3 +39,7 @@ p {
 .printer-list .printer-item.color-printer {
 	background-color: #D9EDF7;
 }
+
+.loading-spinner {
+	padding-left: 4px;
+}

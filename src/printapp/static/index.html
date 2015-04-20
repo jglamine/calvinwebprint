@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="static/css/foundation.min.css">
     <link rel="stylesheet" href="static/css/normalize.css">
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
     <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="static/img/favicon.ico" type="image/x-icon">
     <script src="static/js/libs/jquery-1.10.2.min.js"></script>
@@ -121,7 +122,7 @@
             {{/if}}
           </p>
         {{else}}
-          <p>Loading...</p>
+          <i class="fa fa-refresh fa-spin fa-2x loading-spinner" title="Loading..."></i>
         {{/if}}
       {{/if}}
     </div>
@@ -187,7 +188,7 @@
             </p>
           </div>
         {{else}}
-          <p>Loading...</p>
+          <i class="fa fa-refresh fa-spin fa-2x loading-spinner" title="Loading..."></i>
         {{/if}}
 
       {{/if}}
@@ -228,7 +229,7 @@
             We’re having trouble loading the print form. Reload the page to try again. If this does not solve the problem, try signing out and signing back in.
           </p>
         {{else}}
-          <p>Loading...</p>
+          <i class="fa fa-refresh fa-spin fa-2x loading-spinner" title="Loading..."></i>
         {{/if}}
 
         </div>
@@ -409,7 +410,7 @@
             We’re having trouble loading the list of printers. Check your internet connection and reload the page to try again.  If this does not solve the problem, try signing out and signing back in.
           </p>
         {{else}}
-          <p>Loading...</p>
+          <i class="fa fa-refresh fa-spin fa-2x loading-spinner" title="Loading..."></i>
         {{/if}}
       {{/if}}
     </div>
