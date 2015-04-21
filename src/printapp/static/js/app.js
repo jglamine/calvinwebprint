@@ -5,7 +5,9 @@ As only the root url route is used, most of the logic takes place in a single
 controller.
 */
 
-window.App = Ember.Application.create();
+window.App = Ember.Application.create({
+  rootElement: '#ember'
+});
 
 // Main controller for the single page application.
 //
