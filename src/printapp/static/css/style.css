@@ -9,6 +9,11 @@
 	margin-left: 1.375rem;
 }
 
+/* Force the footer to the bottom of page before Ember app loads */
+#ember {
+	min-height: 800px;
+}
+
 .hide {
 	display: none;
 }
