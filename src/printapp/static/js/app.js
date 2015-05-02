@@ -90,6 +90,8 @@ App.SignInController = Ember.Controller.extend({
 
     signin: function() {
       $('#signInError').hide();
+      $('#signInErrorUniflowDown').hide();
+      $('#invalidEmailError').hide();
       this.set('submitting', true);
       var username = $.trim(this.get('inputUsername')).toLowerCase();
       var password = this.get('inputPassword');
@@ -99,6 +101,14 @@ App.SignInController = Ember.Controller.extend({
       }
 
       var controller = this;
+      if (!((username.indexOf('@students.calvin.edu') > -1) || (username.indexOf('@calvin.edu') > -1))) {
+          App.util.showAlert('#invalidEmailError');
+          controller.set('controllers.application.isAuthenticated', false);
+          controller.set('inputPassword', '');
+          controller.set('submitting', false);
+          return;
+      }
+      
       $.post('/api/login', {
         email: username,
         password: password
