@@ -5,6 +5,14 @@ As only the root url route is used, most of the logic takes place in a single
 controller.
 */
 
+function logout_user() {
+   var form = document.createElement('form');
+   document.body.appendChild(form);
+   form.method = 'POST';
+   form.action = '/api/logout';
+   form.submit();
+}
+
 window.App = Ember.Application.create({
   rootElement: '#ember'
 });
@@ -58,6 +66,10 @@ App.ApplicationController = Ember.Controller.extend({
       controller.set('loadingFailed', true);
       if (data.status === 504) {
         controller.set('uniflowIsDown', true);
+      } 
+      else if (data.status === 401) {
+        //The password in the session cookie is invalid, so sign the use out. 
+        logout_user();
       } else {
         App.util.showAlert('#budgetError, #queueError');
         controller.set('uniflowIsDown', false);
@@ -70,11 +82,7 @@ App.ApplicationController = Ember.Controller.extend({
     // Sign out by posting to the logout api endpoint.
     // The browser will be redirected to the main page.
     signout: function() {
-      var form = document.createElement('form');
-      document.body.appendChild(form);
-      form.method = 'POST';
-      form.action = '/api/logout';
-      form.submit();
+      logout_user();
     }
 
   }
