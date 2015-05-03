@@ -14,6 +14,19 @@ class TestDocument(unittest.TestCase):
         self.assertNotEqual(None, user)
         self._email = 'test@example.com'
         self._path = os.path.abspath(os.path.dirname(__file__))
+
+    def test_delete_document(self):
+        with app.app_context():
+            file_name = 'test.docx'
+            path = os.path.join(self._path, 'docs', file_name)
+            with open(path, 'rb') as test_file:
+                _id = save_document(file_handle=test_file,
+                                    document_name=file_name, email=self._email)
+            self.assertIsNotNone(_id)
+            delete_document(_id, self._email)
+
+            retrieved_file = get_document(document_id=_id, email=self._email)
+            self.assertIsNone(retrieved_file)
     
     def test_get_and_save_document(self):
         with app.app_context():

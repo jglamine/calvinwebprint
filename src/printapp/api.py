@@ -248,6 +248,8 @@ def printjob():
                               copies=copies, collate=collate, staple=staple)
     except cloudprint.JobSubmissionError:
         abort(502)
+    finally:
+        document.delete_document(file_id, email)
 
     file_handle.close()
     return '', 201
