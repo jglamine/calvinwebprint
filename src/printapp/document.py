@@ -4,6 +4,22 @@ import gridfs
 from printapp import mongo
 from bson.objectid import ObjectId
 
+
+def delete_document(document_id, email):
+    """Deletes a document by document_id.
+
+    Raises DatabaseError on error.
+    """
+    document_id = ObjectId(document_id)
+    try:
+        fs = gridfs.GridFS(mongo.db, 'document_fs')
+    except TypeError as err:
+        raise DatabaseError(err)
+
+    if fs.exists(_id=document_id, email=email):
+        fs.delete(document_id)
+
+
 def get_document(document_id, email):
     """Retrieves a document by document_id.
 
