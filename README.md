@@ -19,6 +19,10 @@ Every time you open a new terminal window, you will have to activate the virtual
 
     source venv/Scripts/activate
 
+If you are not on Windows, you will need to activate the virtual environment with this instead:
+
+    source venv/bin/activate
+
 Install the python dependencies with:
 
     pip install -r requirements.txt
