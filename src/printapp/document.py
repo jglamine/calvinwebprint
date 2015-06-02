@@ -54,9 +54,9 @@ def save_document(file_handle, document_name, email):
     except TypeError as err:
         raise DatabaseError(err)
 
-    # Remove old documents until only 4 remain.
+    # Remove old documents until only 2 remain.
     try:
-        documents = fs.find( {'email': email } ).sort('timestamp', pymongo.DESCENDING).skip(4)
+        documents = fs.find( {'email': email } ).sort('timestamp', pymongo.DESCENDING).skip(2)
     except TypeError as err:
         raise DatabaseError(err)
     for document in documents:

@@ -162,6 +162,8 @@ App.QueueItemController = Ember.ObjectController.extend({
 });
 
 App.CloudprintController = Ember.ObjectController.extend({
+  needs: 'application',
+
   init: function() {
     this._super();
     this.getCloudPrintStatus();
@@ -172,7 +174,6 @@ App.CloudprintController = Ember.ObjectController.extend({
   cloudPrintPermissionUrl: null,
   loadingError: false,
 
-  addPrinterLink: 'http://www.calvin.edu/go/addcloudprint',
   showAddPrinterHelp: false,
   showAddPrinterButton: true,
 
@@ -214,13 +215,17 @@ App.CloudprintController = Ember.ObjectController.extend({
   actions: {
 
     onAddPrinter: function() {
+      var controller = this;
+
       // open a url in a new window where users can add the Calvin printer
       // to their cloud print account.
-      window.open(this.get('addPrinterLink', '_blank'));
+      var email = encodeURIComponent(controller.get('controllers.application.email'));
+      var UNIFLOW_ID = '744d93a2-bc96-3bb5-7bac-4042a5cfb08a';
+      var addPrinterLink = 'https://accounts.google.com/AddSession?continue=https%3A%2F%2Fwww.google.com%2Fcloudprint%2Faddpublicprinter.html%3Fprinterid%3D' + UNIFLOW_ID + '%26key%3D254955605&service=cloudprint&sacu=1&acui=2#Email=' + email;
+      window.open(addPrinterLink, '_blank');
       this.set('showAddPrinterButton', false);
 
       // when focus returns to this page, check if the printer was added
-      var controller = this;
       window.addEventListener('focus', function(event) {
         controller.checkIfPrinterAdded();
         event.target.removeEventListener(event.type, arguments.callee);

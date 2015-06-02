@@ -4,7 +4,7 @@ import requests
 from requests_ntlm import HttpNtlmAuth
 from bs4 import BeautifulSoup
 
-BASE_URL = 'https://print.calvin.edu/'
+BASE_URL = 'https://uniflow.calvin.edu/'
 CLIENT_PATH = 'pwclient/'
 RQM_PATH = 'pwrqm/'
 AUTH_PATH = 'getuserid.asp'

@@ -6,7 +6,7 @@ import client
 import auth
 
 CLOUDPRINT_URL = 'https://www.google.com/cloudprint'
-UNIFLOW_ID = 'eeec5cdd-8deb-e24a-8f04-30bf0447b555'
+UNIFLOW_ID = '744d93a2-bc96-3bb5-7bac-4042a5cfb08a'
 
 def submit_job(token, file, color=False, duplex=False, copies=1, collate=True, staple=False):
     """Submits a print job to the uniFLOW printer.

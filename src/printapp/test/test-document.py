@@ -4,7 +4,7 @@ import flask
 import gridfs
 import printapp
 from printapp import app, mongo
-from printapp.document import save_document, get_document
+from printapp.document import save_document, get_document, delete_document
 from bson.objectid import ObjectId
 
 class TestDocument(unittest.TestCase):
@@ -75,9 +75,7 @@ class TestDocument(unittest.TestCase):
             documents = fs.find( {'email': self._email } )
             for doc in documents:
                 count += 1
-            self.assertEqual(count, 5)
+            self.assertEqual(count, 3)
 
             for i in range(2):
                 self.assertFalse(fs.exists(_id=ObjectId(doc_ids[i]), email=self._email))
-            for i in range(2, 5):
-                self.assertTrue(fs.exists(_id=ObjectId(doc_ids[i]), email=self._email))
