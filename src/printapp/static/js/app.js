@@ -140,10 +140,36 @@ App.SignInController = Ember.Controller.extend({
 });
 
 App.QueueController = Ember.ArrayController.extend({
-  itemController: 'queueItem'
+  needs: ['application','queue'],
+  itemController: 'queueItem',
+
+  actions : {
+
+    deleteJob: function(job_id) {
+      $("#" + job_id + " .loading-spinner").css("display", "inline-block");
+      $("#" + job_id + " a").hide();
+      var controller = this;
+
+      $.post('/api/deletejob/' + job_id)
+      .done(function(data, textStatus, response) {
+        var queue = controller.get('model');
+        var documentToDelete = queue.findBy('job_id', job_id);
+        controller.get('model').removeObject(documentToDelete);
+        controller.get('controllers.application').getQueueAndBudget();
+      }).error(function(data, textStatus, response) {
+        App.util.showAlert('#deleteError');
+        $("#" + job_id + " a").show();
+      }).always(function(data, textStatus, response) {
+        $("#" + job_id + " .loading-spinner").hide();
+      });
+    }
+
+  }
 });
 
 App.QueueItemController = Ember.ObjectController.extend({
+  loading: false, 
+
   displayIsColor: function() {
     return this.get('color') ? 'Yes' : 'No';
   }.property('color'),

@@ -101,12 +101,65 @@ class ApiTestCase(unittest.TestCase):
             response = app.post('/api/upload', data=form_data)
             self.assertEqual(self._status(response), 400)
 
-    @unittest.skip("Skip test which actually prints.")
+    def test_has_supported_filetype(self):
+        self.assertFalse(_has_supported_filetype('test.file'))
+        self.assertFalse(_has_supported_filetype('test.docc'))
+        self.assertFalse(_has_supported_filetype('test.pddf'))
+        self.assertTrue(_has_supported_filetype('test.doc'))
+        self.assertTrue(_has_supported_filetype('test.docx'))
+        self.assertTrue(_has_supported_filetype('test.pdf'))
+        self.assertTrue(_has_supported_filetype('test.txt'))
+
+    def _status(self, response):
+        return int(response.status.split()[0])
+
+    def _sign_in(self, app):
+        form_data = {}
+        form_data['email'] = '{}@students.calvin.edu'.format(self.username)
+        form_data['password'] = self.password
+        app.post('/api/login', data=form_data)
+
+
+@unittest.skip("Skip test which actually prints.")
+class ApiPrintDeleteTestCase(unittest.TestCase):
+    def setUp(self):
+        printapp.app.secret_key = 'test key'
+        printapp.app.config['TESTING'] = True
+        self.get_client = printapp.app.test_client
+        self.username = os.getenv('UNIFLOW_USER')
+        self.password = os.getenv('UNIFLOW_PASSWORD')
+        self.assertIsNotNone(self.username)
+        self.assertIsNotNone(self.password)
+        self._path = os.path.abspath(os.path.dirname(__file__))
+
+    def tearDown(self):
+        """ Tests the /api/deletejob/<job_id> endpoint.
+        """
+        with self.get_client() as app:
+            self._sign_in(app)
+
+            response = app.post('/api/deletejob')
+            self.assertEqual(self._status(response), 404)
+            response = app.post('/api/deletejob/')
+            self.assertEqual(self._status(response), 404)
+            response = app.post('/api/deletejob/invalidJobID')
+            self.assertEqual(self._status(response), 200)
+            
+            response = app.get("/api/uniflowstatus")
+            response_json = flask.json.loads(response.data)
+            self.assertEqual(self._status(response), 200)
+            queue = response_json['queue']
+            self.assertIsNotNone(queue)
+            for document in queue:
+                response = app.post('/api/deletejob/' + document['job_id'])
+                self.assertEqual(self._status(response), 200)
+
+            response = app.get("/api/uniflowstatus")
+            response_json = flask.json.loads(response.data)
+            self.assertEqual(response_json['queue'], [])
+
     def test_print(self):
         """Tests the /api/upload and /api/print endpoints.
-
-        This test is disabled by default. Enable it by commenting out the
-        decorator above.
         """
         with self.get_client() as app:
             self._sign_in(app)
@@ -121,7 +174,7 @@ class ApiTestCase(unittest.TestCase):
                 response = app.post('/api/upload', data=form_data)
                 response_json = flask.json.loads(response.data)
                 objectid = response_json['file_id']
-                oid.append(response_json['file_id'])
+                oid.append(objectid)
 
             form_data = {}
             form_data['file_id'] = None
@@ -129,6 +182,7 @@ class ApiTestCase(unittest.TestCase):
             form_data['double_sided'] = 5
             form_data['collate'] = True
             form_data['copies'] = 1
+            form_data['staple'] = True
             response = app.post('/api/print', data=form_data)
             self.assertEqual(self._status(response), 400)
 
@@ -140,15 +194,6 @@ class ApiTestCase(unittest.TestCase):
                 form_data['file_id'] = objectid
                 response = app.post('/api/print', data=form_data)
                 self.assertEqual(self._status(response), 201)
-
-    def test_has_supported_filetype(self):
-        self.assertFalse(_has_supported_filetype('test.file'))
-        self.assertFalse(_has_supported_filetype('test.docc'))
-        self.assertFalse(_has_supported_filetype('test.pddf'))
-        self.assertTrue(_has_supported_filetype('test.doc'))
-        self.assertTrue(_has_supported_filetype('test.docx'))
-        self.assertTrue(_has_supported_filetype('test.pdf'))
-        self.assertTrue(_has_supported_filetype('test.txt'))
 
     def _status(self, response):
         return int(response.status.split()[0])

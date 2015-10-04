@@ -74,7 +74,7 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="budget">
-  <div class="row">
+  <div class="row budget-section">
     <div class="small-12 columns">
       {{#if isLoaded}}
         <div id="budgetError" data-alert hidden class="alert-box alert radius">
@@ -113,9 +113,18 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="queue">
-  <div class="row">
+  <div class="row queue-section">
     <div class="small-12 columns">
-      <h4>Print Queue</h4>
+      {{#if isLoaded}}
+        <h4>Print Queue</h4>
+      {{else}}
+          <h4>Print Queue
+            {{#unless loadingFailed}}
+              <i class="fa fa-refresh fa-spin loading-spinner" id="queue-loading" title="Loading..."></i>
+            {{/unless}}
+          </h4>
+      {{/if}}
+
       <p>
         When you upload a document, it is added to your print queue. To print a queued document, scan your Calvin ID at any printer on campus.
       </p>
@@ -124,6 +133,10 @@
 
         <div id="queueError" data-alert hidden class="alert-box alert radius">
           <strong>Oops!</strong> We’re having trouble refreshing your print queue. Reload the page to try again. If this does not solve the problem, try signing out and signing back in.
+          <a href="#" class="close">&times;</a>
+        </div>
+        <div id="deleteError" data-alert hidden class="alert-box alert radius">
+          <strong>Oops!</strong> There was a problem deleting your document. Reload the page then try again. If this does not solve the problem, try signing out and signing back in.
           <a href="#" class="close">&times;</a>
         </div>
 
@@ -140,8 +153,14 @@
             </thead>
             <tbody>
               {{#each item in controllers.queue}}
-                <tr>
-                  <td>{{item.name}}</td>
+                <tr {{bind-attr id=item.job_id}}>
+                  <td class="document-title">
+                    <a {{action 'deleteJob' item.job_id}} title="Delete document from queue">
+                      <i class="fa fa-times-circle fa-lg delete-cross" title="Delete document from queue"></i>
+                    </a>
+                    <i class="fa fa-refresh fa-spin fa-lg loading-spinner hide" title="Deleting..."></i>
+                    {{item.name}}
+                  </td>
                   <td>{{item.displayDate}}</td>
                   <td>{{item.displayPages}}</td>
                   <td>{{item.displayPrice}}</td>
@@ -168,8 +187,6 @@
               {{/if}}
             </p>
           </div>
-        {{else}}
-          <i class="fa fa-refresh fa-spin fa-2x loading-spinner" title="Loading..."></i>
         {{/if}}
 
       {{/if}}
