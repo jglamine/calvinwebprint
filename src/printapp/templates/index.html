@@ -292,6 +292,10 @@
         <strong>Incorrect file type.</strong> Sorry, we can’t print files of this type. Try a Word document or PDF.
         <a href="#" class="close">&times;</a>
       </div>
+      <div id="fileUploadError" data-alert hidden class="alert-box alert radius">
+        <strong>Sorry!</strong> Something went wrong while uploading your file. Please try again.
+        <a href="#" class="close">&times;</a>
+      </div>
       {{#if fileSelected}}
         <p>
           <button {{action 'selectFile'}}>Select a file</button>
