@@ -330,7 +330,7 @@ App.PrintFormController = Ember.ObjectController.extend({
 
   actions: {
     selectFile: function() {
-      $('#fileSizeError, #fileTypeError').hide();
+      $('#fileSizeError, #fileTypeError, #fileUploadError').hide();
       var element = document.getElementById('file-input');
       element.click();
     },
@@ -368,6 +368,7 @@ App.PrintFormController = Ember.ObjectController.extend({
         controller.set('documentId', data.file_id);
       })
       .fail(function(data, textStatus, response) {
+        App.util.showAlert('#fileUploadError');
         controller.send('cancelUpload');
       });
     },
