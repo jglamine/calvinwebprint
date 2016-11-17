@@ -246,8 +246,9 @@ App.CloudprintController = Ember.ObjectController.extend({
       // open a url in a new window where users can add the Calvin printer
       // to their cloud print account.
       var email = encodeURIComponent(controller.get('controllers.application.email'));
-      var UNIFLOW_ID = '744d93a2-bc96-3bb5-7bac-4042a5cfb08a';
-      var addPrinterLink = 'https://accounts.google.com/AddSession?continue=https%3A%2F%2Fwww.google.com%2Fcloudprint%2Faddpublicprinter.html%3Fprinterid%3D' + UNIFLOW_ID + '%26key%3D254955605&service=cloudprint&sacu=1&acui=2#Email=' + email;
+      var UNIFLOW_ID = '7b30c56e-08f1-e90a-7fc8-ed11099a4a72';
+      var KEY = '2460416721';
+      var addPrinterLink = 'https://accounts.google.com/AddSession?continue=https%3A%2F%2Fwww.google.com%2Fcloudprint%2Faddpublicprinter.html%3Fprinterid%3D' + UNIFLOW_ID + '%26key%3D' + KEY + '&service=cloudprint&sacu=1&acui=2#Email=' + email;
       window.open(addPrinterLink, '_blank');
       this.set('showAddPrinterButton', false);
 
