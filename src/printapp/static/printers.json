@@ -28,6 +28,14 @@
         "type": "Laser"
       },
       {
+        "name": "HL102-ITC-MFDCOLOR",
+        "room": "102",
+        "building": "Hekman Library",
+        "public": true,
+        "color": true,
+        "type": "MFD"
+      },
+      {
         "name": "HL106-CIT-MFDCOLOR",
         "room": "106",
         "building": "Hekman Library",
@@ -37,7 +45,7 @@
       },
       {
         "name": "HL120-CIT-LSR1",
-        "room": "102",
+        "room": "120",
         "building": "Hekman Library",
         "public": true,
         "color": false,
@@ -349,7 +357,7 @@
         "building": "Theta Epsilon",
         "public": true,
         "color": false,
-        "type": "Laser"
+        "type": "MFD"
       },
       {
         "name": "ZL-STLF-LSR1",
@@ -357,7 +365,7 @@
         "building": "Zeta Lambda",
         "public": true,
         "color": false,
-        "type": "MFD"
+        "type": "Laser"
       }
     ]
   },
@@ -514,6 +522,14 @@
         "type": "MFD"
       },
       {
+        "name": "CF215A-CIT-LSR1",
+        "room": "215A",
+        "building": "Covenant Fine Arts Center",
+        "public": false,
+        "color": false,
+        "type": "Laser"
+      },
+      {
         "name": "CF224-MUSC-LSR1",
         "room": "224",
         "building": "Covenant Fine Arts Center",
@@ -554,11 +570,11 @@
         "type": "Laser"
       },
       {
-        "name": "CF215A-CIT-LSR1",
-        "room": "215A",
+        "name": "CF251A-CIT-LSRCOLOR",
+        "room": "251A",
         "building": "Covenant Fine Arts Center",
         "public": true,
-        "color": false,
+        "color": true,
         "type": "Laser"
       },
       {
@@ -600,11 +616,11 @@
         "type": "Laser"
       },
       {
-        "name": "DC100-CAS-LSR1",
+        "name": "DC100-CAS-LSRCOLOR",
         "room": "100",
         "building": "DeVos Communcations Center",
         "public": true,
-        "color": false,
+        "color": true,
         "type": "Laser"
       },
       {
@@ -774,7 +790,7 @@
         "type": "Laser"
       },
       {
-        "name": "SB277-ENGR-LSR1",
+        "name": "SB277-BIOL-LSR1",
         "room": "277",
         "building": "Science Building",
         "public": true,
